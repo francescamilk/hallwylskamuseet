@@ -1,0 +1,21 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a,
+a:hover,
+a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* canvas */
+#webgl {
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+    z-index: 1;
+}
