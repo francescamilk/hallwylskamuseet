@@ -35,14 +35,45 @@ window.addEventListener('resize', () => {
 
 // Camera
 const camera = new THREE.PerspectiveCamera(
-    60,
+    85,
     sizes.width / sizes.height,
     0.1,
     100
 );
 
-camera.position.set(-4.37, 2.52, 3.51);
+camera.position.set(-4.13, 2.41, 3.64);
 scene.add(camera);
+
+// Controls
+const controls = new OrbitControls(camera, canvas);
+controls.enableDamping = true;
+
+// Renderer
+const renderer = new THREE.WebGLRenderer({ 
+    canvas,
+    precision: 'mediump'  
+});
+
+renderer.setSize(sizes.width, sizes.height);
+// vivid colors
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 0.8;
+
+// Model load
+const loader = new GLTFLoader();
+
+loader.load('/model/swedish-royal/scene.gltf', (gltf) => {
+    const model = gltf.scene;
+
+    // add dark layer
+    model.traverse((child) => {
+        if (child.isMesh) {
+            child.material.color.set(0xafafaf);
+        }
+    });
+
+    scene.add(model);
+});
 
 // &plug gui
 gui
@@ -68,27 +99,10 @@ gui
     .min(-10).max(10).step(0.01)
     .name('Camera position z');
 
-// Controls
-const controls = new OrbitControls(camera, canvas);
-controls.enableDamping = true;
-
-// Renderer
-const renderer = new THREE.WebGLRenderer({ 
-    canvas,
-    precision: 'mediump'  
-});
-
-renderer.setSize(sizes.width, sizes.height);
-// vivid colors
-renderer.toneMapping = THREE.ACESFilmicToneMapping;
-
-// Model load
-const loader = new GLTFLoader();
-
-loader.load('/model/swedish-royal/scene.gltf', (gltf) => {
-    const model = gltf.scene;
-    scene.add(model);
-});
+gui
+    .add(renderer, 'toneMappingExposure')
+    .min(0.1).max(2).step(0.01)
+    .name('Tone exposure');
 
 // Animate
 const animLoop = () => {
