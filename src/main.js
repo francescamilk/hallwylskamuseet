@@ -2,6 +2,59 @@ import * as THREE from 'three';
 import GUI from 'lil-gui';
 import { OrbitControls } from 'three/addons/controls/OrbitControls';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader';
+import gsap from 'gsap';
+
+// Camera motion logic
+const mainCamera = {
+    fov: 85,
+    pos: {
+        x: -4.13,
+        y: 2.41,
+        z: 3.64
+    }
+}
+
+const links  = document.querySelectorAll('a');
+links.forEach((link, idx) => {
+    link.addEventListener('click', (e) => {
+        switch (idx) {
+            case 0:
+                positionCamera(
+                    mainCamera.pos.x, 
+                    mainCamera.pos.y, 
+                    mainCamera.pos.z
+                );
+                camera.fov = mainCamera.fov;
+
+                break;
+            case 1:
+                // console.log('tapestry');
+
+                break;
+            case 2:
+                // console.log('fireplace');
+
+                break;
+            case 3:
+                // console.log('ceiling');
+
+                break;
+            case 4:
+                // console.log('piano');
+
+                break;
+            case 5:
+                // console.log('museum');
+        }
+    });
+});
+
+const positionCamera = (x, y, z) => {
+    gsap.to(camera.position, { 
+        x, y, z,
+        duration: 3
+    });
+}
 
 // Gui init
 const gui = new GUI();
@@ -35,13 +88,13 @@ window.addEventListener('resize', () => {
 
 // Camera
 const camera = new THREE.PerspectiveCamera(
-    85,
+    mainCamera.fov,
     sizes.width / sizes.height,
     0.1,
     100
 );
 
-camera.position.set(-4.13, 2.41, 3.64);
+camera.position.set(mainCamera.pos.x, mainCamera.pos.y, mainCamera.pos.z);
 scene.add(camera);
 
 // Controls
@@ -99,10 +152,10 @@ gui
     .min(-10).max(10).step(0.01)
     .name('Camera position z');
 
-gui
-    .add(renderer, 'toneMappingExposure')
-    .min(0.1).max(2).step(0.01)
-    .name('Tone exposure');
+// gui
+//     .add(renderer, 'toneMappingExposure')
+//     .min(0.1).max(2).step(0.01)
+//     .name('Tone exposure');
 
 // Animate
 const animLoop = () => {

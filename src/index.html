@@ -6,36 +6,36 @@
     
     <title>The Hallwyl Museum | MILK ThreeJS Experience</title>
     <meta name="description" content="Francescamilk x The Hallwyll Museum">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
 
     <link rel="stylesheet" href="./style.css">
     <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
+    <nav class="container">
+        <a href="#main">
+            <i data-feather="maximize"></i>
+            <!-- 🏛️ -->
+        </a>
+        <ul class="links">
+            <li>
+                <a href="#tapestry"><small>Tapestry</small></a>
+            </li>
+            <li>
+                <a href="#fireplace"><small>Fireplace</small></a>
+            </li>
+            <li>
+                <a href="#ceiling"><small>Ceiling</small></a>
+            </li>
+            <li>
+                <a href="#piano"><small>Grand Piano</small></a>
+            </li>
+            <li>
+                <a href="#museum"><small>The Museum</small></a>
+            </li>
+        </ul>
+    </nav>
     <main class="container">
-        <nav class="container">
-            <a href="#main" id="0">
-                <i data-feather="maximize"></i>
-                <!-- 🏛️ -->
-            </a>
-            <ul class="links">
-                <li>
-                    <a href="#tapestry"><small>Tapestry</small></a>
-                </li>
-                <li>
-                    <a href="#fireplace"><small>Fireplace</small></a>
-                </li>
-                <li>
-                    <a href="#ceiling"><small>Ceiling</small></a>
-                </li>
-                <li>
-                    <a href="#piano"><small>Grand Piano</small></a>
-                </li>
-                <li>
-                    <a href="#museum"><small>The Museum</small></a>
-                </li>
-            </ul>
-        </nav>
-
         <section id="main" class="center">
             <div>
                 <h1>The Hallwyl Museum</h1>
@@ -126,16 +126,15 @@
                 </p>
             </div>
         </section>
-
-        <footer>
-            <p>
-                <small>Copyright © FRANCESCAMILK x The Hallwyl Museum 2024</small>
-            </p>
-            <a href="#">
-                <small>Cookies</a> | <a href="#">Privacy</small>
-            </a>
-        </footer>
     </main>
+    <footer>
+        <p>
+            <small>Copyright © FRANCESCAMILK x The Hallwyl Museum 2024</small>
+        </p>
+        <span>
+            <small>Cookies</a> | Privacy</small>
+        </span>
+    </footer>
 
     <canvas id="webgl"></canvas>
     <script type="module" src="./main.js"></script>
