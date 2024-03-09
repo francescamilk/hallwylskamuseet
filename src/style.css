@@ -24,7 +24,7 @@ a:visited {
 
 /* typography */
 body {
-    color: #E4E0D9;
+    color: #d6cfc3;
     font-family: "Inter", sans-serif;
     font-weight: lighter;
     font-size: 1rem;
@@ -119,6 +119,7 @@ nav {
 
 .links li {
     padding-left: 1.5rem;
+    letter-spacing: .15rem;
 }
 
 /* header */
