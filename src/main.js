@@ -18,33 +18,37 @@ const links  = document.querySelectorAll('a');
 links.forEach((link, idx) => {
     link.addEventListener('click', (e) => {
         switch (idx) {
-            case 0:
+            case 1:
+                // console.log('tapestry', camera.position);
+                positionCamera(-3.77, 4.59, 2.63);
+
+                break;
+            case 2:
+                // console.log('fireplace', camera.position);
+                positionCamera(-1.55, 2.87, 3.12);
+
+                break;
+            case 3:
+                // console.log('ceiling', camera.position);
+                positionCamera(-5.49, 1.89, 1.15);
+
+                break;
+            case 4:
+                // console.log('piano', camera.position);
+                positionCamera(3.65, 4.02, -2.54);
+                
+                break;
+                case 5:
+                // console.log('museum', camera.position);
+                    console.log(camera.position)
+                    positionCamera(0.61, 2.54, -5.40);
+                break;
+            default:
                 positionCamera(
                     mainCamera.pos.x, 
                     mainCamera.pos.y, 
                     mainCamera.pos.z
                 );
-                camera.fov = mainCamera.fov;
-
-                break;
-            case 1:
-                // console.log('tapestry');
-
-                break;
-            case 2:
-                // console.log('fireplace');
-
-                break;
-            case 3:
-                // console.log('ceiling');
-
-                break;
-            case 4:
-                // console.log('piano');
-
-                break;
-            case 5:
-                // console.log('museum');
         }
     });
 });
@@ -58,6 +62,7 @@ const positionCamera = (x, y, z) => {
 
 // Gui init
 const gui = new GUI();
+gui.hide();
 
 // Canvas
 const canvas = document.querySelector('#webgl');
@@ -151,11 +156,6 @@ gui
     .add(camera.position, 'z')
     .min(-10).max(10).step(0.01)
     .name('Camera position z');
-
-// gui
-//     .add(renderer, 'toneMappingExposure')
-//     .min(0.1).max(2).step(0.01)
-//     .name('Tone exposure');
 
 // Animate
 const animLoop = () => {

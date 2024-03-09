@@ -24,10 +24,11 @@ a:visited {
 
 /* typography */
 body {
-    color: #f8f5f5;
+    color: #E4E0D9;
     font-family: "Inter", sans-serif;
     font-weight: lighter;
     font-size: 1rem;
+    overflow: hidden;
 }
 
 h1,
@@ -46,6 +47,10 @@ h2 {
 
 h3 {
     font-size: 6vw;
+}
+
+span {
+    cursor: pointer;
 }
 
 /* page layout */
@@ -124,7 +129,10 @@ nav {
 
 /* footer */
 footer {
-    position: relative;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     text-align: center;
     margin-bottom: 2rem;
     z-index: 10;
@@ -132,4 +140,12 @@ footer {
 
 footer small {
     letter-spacing: .25rem;
+}
+
+/* scroll */
+#museum a {
+    position: absolute;
+    bottom: 2.4rem;
+    right: .5rem;
+    z-index: 100;
 }
