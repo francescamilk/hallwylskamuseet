@@ -19,3 +19,80 @@ a:visited {
     outline: none;
     z-index: 1;
 }
+
+/* appearence */
+main {
+    color: #fff;
+}
+
+h1 {
+    font-size: 15vmin;
+}
+
+/* page layout */
+section {
+    width: 84vw;
+    height: 100vh;
+    margin: 0 auto;
+    position: relative;
+    z-index: 100;
+}
+
+.container {
+    margin: auto;
+    width: 85vw;
+}
+
+/* content layout */
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center div {
+    text-align: center;
+}
+
+.left {
+    text-align: center;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.left div {
+    text-align: left;
+}
+
+.right {
+    text-align: left;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.right div {
+    text-align: right;
+}
+
+/* nav */
+nav {
+    position: fixed;
+    top: 2rem;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 101;
+    display: flex;
+    justify-content: space-between;
+}
+
+.links {
+    display: flex;
+    list-style: none;
+}
+
+.links li {
+    padding-left: 1.5rem;
+}

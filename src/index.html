@@ -4,15 +4,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>The Hallwyll Museum | MILK ThreeJS Experience</title>
+    <title>The Hallwyl Museum | MILK ThreeJS Experience</title>
     <meta name="description" content="Francescamilk x The Hallwyll Museum">
 
     <link rel="stylesheet" href="./style.css">
+    <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
-    <main></main>
+    <main class="container">
+        <nav class="container">
+            <a href="#main" id="0">
+                <i data-feather="circle"></i>
+            </a>
+            <ul class="links">
+                <li>
+                    <a href="#tapestry">Tapestry</a>
+                </li>
+                <li>
+                    <a href="#fireplace">Fireplace</a>
+                </li>
+                <li>
+                    <a href="#ceiling">Ceiling</a>
+                </li>
+                <li>
+                    <a href="#piano">Grand Piano</a>
+                </li>
+                <li>
+                    <a href="#museum">The Museum</a>
+                </li>
+            </ul>
+        </nav>
+
+        <section id="main" class="center">
+            <div>
+                <h1>The Hallwyl Museum</h1>
+                <hr />
+                <h6>An immersive experience by francescamilk</h6>
+            </div>
+        </section>
+
+        <section id="tapestry" class="left">
+            <div>
+                <h3>The Tapestry</h3>
+                <p>
+                    The tapestries were made in the second half of the 16th century, <br />
+                    and were purchased for the house in 1894. <br />
+                    <br />
+                    Isak Gustaf Clason based his design for the whole room on them, <br />
+                    both the size and the colour scheme. <br />
+                    <br />
+                    There is a total of six tapetstries; two hang in the Small Drawing Room. <br />
+                    They represent the sixth song of the Odyssey <br />
+                     where Odysseus (or Ulysses) meets Nausicaa.
+                </p>
+            </div>
+        </section>
+
+        <section id="fireplace" class="right">
+            <div>
+                <h3>The Fireplace</h3>
+                <p>
+                    The fireplaces in the house never in fact had a practical use, <br />
+                    as a modern central heating system with hot air was installed <br />
+                    when the house was built. <br />
+                    <br />
+                    The purpose of the fireplaces is instead to reflect the different <br />
+                    historical styles of the rooms.<br />
+                    <br />
+                    Above, the relief over the mantelpiece in Carrara marble <br />
+                    was made by the sculptor Gusten Lindberg.
+                </p>
+            </div>
+        </section>
+
+        <section id="ceiling" class="left">
+            <div>
+                <h3>The Ceiling</h3>
+                <p>
+                    This ceiling painting, by Julius Kronberg, alludes to the musical function of the room. <br />
+                    On the right and left ends, there are two latin inscriptions. <br />
+                    The title is “An Open-air concert”. <br />
+                    <br />
+                    ”Ars mollit vitam modulis vel imagine formans” means <br />
+                    “Art and music beautify our lives”. <br />
+                    <br />
+                    ”Pulcra domus docto quasi musica fixa videtur” freely translated reads: <br />
+                    “A beautiful house is for a connoisseur like music petrified”.
+                </p>
+            </div>
+        </section>
+
+        <section id="piano" class="right">
+            <div>
+                <h3>The Grand Piano</h3>
+                <p>
+                    This Steinway Grand Piano was delivered in 1896 <br />
+                    with a relatively simple, brown pear wood case. <br />
+                    <br />
+                    The architect, Isak Gustaf Clason, was asked to design <br />
+                    a new case in a Baroque-inspired style, <br />
+                    more in keeping with the decoration of the room. <br />
+                    <br />
+                    The instrument, which is unique of its kind, was restored in 1990 <br />
+                    and is still kept in perfect concert pitch.
+                </p>
+            </div>
+        </section>
+
+        <section id="museum" class="center">
+            <div>
+                <h2>The Museum</h2>
+                <p>
+                    The Hallwyl Museum is a private house from the turn of the century 1900. <br />
+                    The house was inhabited until 1930 and has since been a state-owned museum <br />
+                    which is now part of the National Historical Museums (SHM), a government agency. <br />
+                    <br />
+                    Find Hallwyl Museum's fantastic environment and history wherever you are. We offer digital guided tours, lectures and much more.
+                    <br />
+                    hallwylskamuseet.se/
+                </p>
+            </div>
+        </section>
+    </main>
 
     <canvas id="webgl"></canvas>
     <script type="module" src="./main.js"></script>
+
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        feather.replace();
+    </script>
 </body>
 </html>
