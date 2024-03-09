@@ -2,9 +2,67 @@ import * as THREE from 'three';
 import GUI from 'lil-gui';
 import { OrbitControls } from 'three/addons/controls/OrbitControls';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader';
+import gsap from 'gsap';
+
+// Camera motion logic
+const mainCamera = {
+    fov: 85,
+    pos: {
+        x: -4.13,
+        y: 2.41,
+        z: 3.64
+    }
+}
+
+const links  = document.querySelectorAll('a');
+links.forEach((link, idx) => {
+    link.addEventListener('click', (e) => {
+        switch (idx) {
+            case 1:
+                // console.log('tapestry', camera.position);
+                positionCamera(-3.77, 4.59, 2.63);
+
+                break;
+            case 2:
+                // console.log('fireplace', camera.position);
+                positionCamera(-1.55, 2.87, 3.12);
+
+                break;
+            case 3:
+                // console.log('ceiling', camera.position);
+                positionCamera(-5.49, 1.89, 1.15);
+
+                break;
+            case 4:
+                // console.log('piano', camera.position);
+                positionCamera(3.65, 4.02, -2.54);
+                
+                break;
+                case 5:
+                // console.log('museum', camera.position);
+                    console.log(camera.position)
+                    positionCamera(0.61, 2.54, -5.40);
+                break;
+            default:
+                positionCamera(
+                    mainCamera.pos.x, 
+                    mainCamera.pos.y, 
+                    mainCamera.pos.z
+                );
+        }
+    });
+});
+
+const positionCamera = (x, y, z) => {
+    gsap.to(camera.position, { 
+        x, y, z,
+        duration: 3
+    });
+}
 
 // Gui init
 const gui = new GUI();
+gui.hide();
 
 // Canvas
 const canvas = document.querySelector('#webgl');
@@ -35,13 +93,13 @@ window.addEventListener('resize', () => {
 
 // Camera
 const camera = new THREE.PerspectiveCamera(
-    85,
+    mainCamera.fov,
     sizes.width / sizes.height,
     0.1,
     100
 );
 
-camera.position.set(-4.13, 2.41, 3.64);
+camera.position.set(mainCamera.pos.x, mainCamera.pos.y, mainCamera.pos.z);
 scene.add(camera);
 
 // Controls
@@ -98,11 +156,6 @@ gui
     .add(camera.position, 'z')
     .min(-10).max(10).step(0.01)
     .name('Camera position z');
-
-gui
-    .add(renderer, 'toneMappingExposure')
-    .min(0.1).max(2).step(0.01)
-    .name('Tone exposure');
 
 // Animate
 const animLoop = () => {
